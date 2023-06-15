@@ -5,13 +5,16 @@ public class checking {
         chessTime();
     }
 
-    // GOAL IS TO CALL CHESS TIME ONCE, THEN CHESS TIME WILL MAKES MOVES
-    //MAKE MOVES WILL CHECK WHETHER THE BOARD IS COMPLETED AND IF NOT CALL ANOTHER MAKE MOVE. IF THE NEXT MAKE MOVE FAILS, IT'LL GO ANOTHER ROUTE
+    // GOAL IS TO CALL chessTime ONCE, THEN chessTime WILL MAKE MOVES using moveTime
+    // moveTime WILL CHECK WHETHER THE BOARD IS COMPLETED AND IF NOT CALL ANOTHER moveTime GIVEN THE MOVE IS LEGAL.
+    // IF ALL OF THE POSSIBLE MOVES ARE ILLEGAL, THE PROGRAM WILL GO BACK A STEP
     public static void chessTime() {
-        //Sets the size and initial starting position
-        int n = 5;
+        // Sets the board size and initial starting position(1)
+        // n is the size of the board. The program works when n is 5 or 6 but usually doesn't when 7 or larger(8 is a normal chessboard)
+        int n = 6;
         int y = 1;
         int x = 1;
+        // Creates the ArrayList that stores the visited squares
         ArrayList<Integer> savedSpots = new ArrayList<>();
         savedSpots.add(1);
         //Makes the first move
@@ -20,20 +23,24 @@ public class checking {
 
     public static boolean moveTime(int n, int x, int y, ArrayList<Integer> savedSpots) {
         Random rn = new Random();
-        //If all the spots are filled then this is called
+        //If all the spots are not visited then this is called
         if(savedSpots.size() < n*n) {
+            // The possible moves a knight can make
             int[] xMove = {-2, -2, -1, -1, 1, 1, 2, 2};
             int[] yMove = {1, -1, 2, -2, 2, -2, 1, -1};
-            boolean checkingMoves = true;
-            while(checkingMoves) {
+            while(true) {
+                // If xMove is empty, moveTime will return true
                 boolean ArrayisEmpty = arrayCheck(xMove);
                 if(ArrayisEmpty) {
                     return true;
                 }
+                // size is the amount of numbers in xMove
                 int size = xMove.length;
+                // Picks a random number in size
                 int randInt = rn.nextInt(size);
-                int possibleX = x + xMove[randInt];
-                int possibleY = y + yMove[randInt];
+                // Creates a new location that the knight can visit using the random number
+                int possibleX = (x + xMove[randInt]);
+                int possibleY = (y + yMove[randInt]);
                 // This checks whether the possible moves are legal
                 if(outOfBounds(possibleX, possibleY, n)) {
                     xMove = arrayRemove(randInt, xMove);
@@ -45,29 +52,28 @@ public class checking {
                 }
                 // This is for when the move is legal
                 else {
+                    // If the move is legal, possible x and y turn it into a square
                     int value = returnVal(possibleX, possibleY, n);
-                    x = possibleX;
-                    y = possibleY;
                     savedSpots.add(value);
                     // Recursive call to a boolean
-                    boolean checkBack = moveTime(n, x, y, savedSpots);
+                    boolean checkBack = moveTime(n, possibleX, possibleY, savedSpots);
+                    // If the valid spot has no further moves
                     if(checkBack) {
-                        //remove the point
+                        //Removes the point and then goes through the loop again
                         xMove = arrayRemove(randInt, xMove);
                         yMove = arrayRemove(randInt, yMove);
+                        savedSpots.remove(Integer.valueOf(value));
                     }
                     else {
                         return false;
                     }
                 }
             }
-            return false;
         }
         else {
             System.out.println(savedSpots);
-            return false;
         }
-
+        return false;
     }
 
     public static int[] arrayRemove(int index, int[] array) {
@@ -75,10 +81,7 @@ public class checking {
         int[] finalArray = new int[array.length - 1];
         for (int i = 0, k = 0; i < array.length; i++) {
             //This is where the deletion occurs
-            if(i == index) {
-                continue;
-            }
-            else{
+            if(i != index) {
                 finalArray[k++] = array[i];
             }
         }
@@ -97,7 +100,7 @@ public class checking {
         }
         return emptyCheck;
     }
-// Checks to see if the potential spot has already been visited
+    // Checks to see if the potential spot has already been visited
     public static boolean alreadyTouched(int x, int y, ArrayList<Integer> savedSpots, int n) {
         int knightPlace = returnVal(x, y, n);
         for(int i = 0; i < savedSpots.size(); i++) {
