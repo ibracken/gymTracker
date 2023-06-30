@@ -18,14 +18,19 @@ public class WorkingTour{
         //Makes the first move
         moveTime(n, x, y, savedSpots);
     }
+
+    // Determine how many available are moves are possible from the spot being checked and returns it to the hasmap
     public static int moveTimeCheck(int n, int x, int y, ArrayList<Integer> savedSpotsTemp) {
+        // The possible moves a knight can make
         Random rn = new Random();
         int[] xMove = {-2, -2, -1, -1, 1, 1, 2, 2};
         int[] yMove = {1, -1, 2, -2, 2, -2, 1, -1};
+        // Tracks number of legal moves
         int counter = 0;
         while(true) {
             // If xMove is empty, moveTime will return true
             boolean arrayIsEmpty = arrayCheck(xMove);
+            // Called once every one of the possible moves are checked
             if(arrayIsEmpty) {
                 return counter;
             }
@@ -45,6 +50,7 @@ public class WorkingTour{
                 xMove = arrayRemove(randInt, xMove);
                 yMove = arrayRemove(randInt, yMove);
             }
+            // If they are legal, counter and move arrays are updated
             else {
                 counter++;
                 xMove = arrayRemove(randInt, xMove);
@@ -78,8 +84,10 @@ public class WorkingTour{
                             min = key;
                         }
                     }
+                    // Uses the smallest number to determine which space should be visited next
                     int nextSpace = moveList.get(min);
                     savedSpots.add(nextSpace);
+                    // Turns the spot into an x,y coordinate
                     Prioritized xAndY = returnXY(nextSpace, n);
                     boolean checkBack = moveTime(n, xAndY.getX(), xAndY.getY(), savedSpots);
                     // If the valid spot has no further moves
@@ -173,7 +181,7 @@ public class WorkingTour{
     }
 
     public static Prioritized returnXY(int value, int n) {
-        //Identifies the numeric location of the knight on the chess board
+        // Turns the spot into an x,y coordinate
         int x = (value % n);
         int y = (value / n)+1;
         if(x == 0) {
