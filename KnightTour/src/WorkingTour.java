@@ -1,15 +1,14 @@
-import java.util.List;
 import java.util.Random;
 import java.util.ArrayList;
 import java.util.HashMap;
-public class queue{
+public class WorkingTour{
     public static void main(String[] args) {
         chessTime();
     }
 
     public static void chessTime() {
         // Sets the board size and initial starting position(1)
-        // n is the size of the board. The program works when n is 5 or 6 but usually doesn't when 7 or larger(8 is a normal chessboard)
+        // n is the size of the board. This works for boards of larger sizes than 8 as well
         int n = 8;
         int y = 1;
         int x = 1;

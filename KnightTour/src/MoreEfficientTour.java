@@ -1,6 +1,6 @@
 import java.util.Random;
 import java.util.ArrayList;
-public class checking {
+public class MoreEfficientTour {
     public static void main(String[] args) {
         chessTime();
     }

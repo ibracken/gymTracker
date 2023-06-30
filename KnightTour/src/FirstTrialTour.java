@@ -1,6 +1,6 @@
 import java.util.Random;
 import java.util.ArrayList;
-public class Main {
+public class FirstTrialTour {
     public static void main(String[] args) {
         chessTime();
     }
@@ -13,7 +13,7 @@ public class Main {
         savedSpots.add(1);
 
         while(savedSpots.size() < n*n) {
-        //for(int i = 0; i < 50; i++) {
+            //for(int i = 0; i < 50; i++) {
             int[] xMove = {-2, -2, -1, -1, 1, 1, 2, 2};
             int[] yMove = {1, -1, 2, -2, 2, -2, 1, -1};
             boolean checkingMoves = true;
@@ -63,7 +63,7 @@ public class Main {
         }
         return finalArray;
     }
-// Checks to see if the potential spot has been already gone to
+    // Checks to see if the potential spot has been already gone to
     public static boolean alreadyTouched(int x, int y, ArrayList<Integer> savedSpots, int n) {
         int place = returnVal(x, y, n);
         for(int i = 0; i < savedSpots.size(); i++) {
