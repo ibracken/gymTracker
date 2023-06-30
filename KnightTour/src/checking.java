@@ -11,7 +11,7 @@ public class checking {
     public static void chessTime() {
         // Sets the board size and initial starting position(1)
         // n is the size of the board. The program works when n is 5 or 6 but usually doesn't when 7 or larger(8 is a normal chessboard)
-        int n = 6;
+        int n = 5;
         int y = 1;
         int x = 1;
         // Creates the ArrayList that stores the visited squares
