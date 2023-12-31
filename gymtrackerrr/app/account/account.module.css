@@ -1,0 +1,10 @@
+  /* Style for text above image */
+  .overlayText {
+    position: absolute; /*allows for top and left declaration*/
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -30%); /* Center the text horizontally and vertically */
+    text-align: center;
+    color: rgb(187, 15, 15); /* Change the text color as needed */
+    z-index: 1; /* Ensure the overlay text is above the image */
+  }

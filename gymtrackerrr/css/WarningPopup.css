@@ -1,0 +1,44 @@
+/* WarningPopup.css */
+
+.modal-overlay {
+    /* Overlay styling */
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .modal-content {
+    /* Modal content styling */
+    position: fixed;
+    top: 50px;
+    background: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+  }
+  
+  .warning-message {
+    /* Warning message styling */
+    color: #050000;
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+  
+  .delete-button,
+  .cancel-button {
+    /* Button styling */
+    background: #ff4444;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .cancel-button {
+    background: #ccc;
+  }  
