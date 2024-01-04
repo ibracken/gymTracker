@@ -1,0 +1,58 @@
+.accountGridContainer {
+    display: flex;
+    justify-content: center; /* Center the grid horizontally */
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .accountGrid {
+    list-style: none;
+    padding: 0;
+    display: flex; /* Change to flex display */
+    flex-wrap: wrap; /* Allow items to wrap to the next line */
+    justify-content: center; /* Center items horizontally */
+    gap: 16px;
+  }
+
+  .accountGridItem {
+    background-image: radial-gradient(circle, #050000 0%, #777777 100%);
+    padding: 16px;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+  }
+
+  .otherGridItem {
+    padding: 16px;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+  }
+
+  .prGridItem {
+    background-image: radial-gradient(circle, #050000 0%, #777777 100%);
+    padding: 16px;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  }
+
+  .accountGridTitle {
+    font-family: 'Arial', sans-serif; /* Change to your desired font family */
+    font-size: 24px;
+    margin-bottom: 16px;
+    text-align: center;
+    background-image: radial-gradient(circle, #050000 0%, #777777 100%);
+    padding: 8px;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  }
+
+  .link{
+    padding: 16px;
+    margin-top: 16px;
+  }
+
+  .ul{
+    list-style: none;
+  }
+  

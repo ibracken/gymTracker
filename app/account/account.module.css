@@ -1,0 +1,40 @@
+  /* Style for text above image */
+  .overlayText {
+    position: absolute; 
+    text-align: center;
+    color: rgb(187, 15, 15); /* Change the text color*/
+    z-index: 1; /* Ensure the overlay text is above the image */
+    max-width: 100%; /* Set maximum width to prevent text from extending beyond Image div */
+    margin: 0 auto; /* Center the text horizontally */
+  left: 50%; 
+  margin-top: 5rem;
+  transform: translateX(-50%);
+  width: 80%;
+  }
+
+  .accountGridTitle {
+    font-family: 'Arial', sans-serif; /* Change to your desired font family */
+    font-size: 24px;
+    margin-bottom: 16px;
+    text-align: center;
+    padding: 8px;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  }
+
+  .img {    
+    background: url('../account/accountBackground.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+  }
+  
+  .margin{
+    margin: -8px;
+  }
+  
+  
+

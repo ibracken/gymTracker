@@ -1,0 +1,75 @@
+  /* Style for text above image */
+  .overlayText {
+    position: absolute; 
+    text-align: center;
+    color: rgb(187, 15, 15); /* Change the text color*/
+    z-index: 1; /* Ensure the overlay text is above the image */
+    max-width: 100%; /* Set maximum width to prevent text from extending beyond Image div */
+    margin: 0 auto; /* Center the text horizontally */
+  left: 50%; 
+  margin-top: 5rem;
+  transform: translateX(-50%);
+  width: 80%;
+  }
+  
+  /* Style for back button */
+  .backButton {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: radial-gradient(circle, #050000 0%, #777777 100%);
+    color: rgb(187, 15, 15); /* Change the text color as needed */
+    padding: 8px;
+    border-radius: 8px;
+  }
+  
+  /* Style for list of reps container */
+  .repGridContainer {
+    display: flex;
+    justify-content: center; /* Center the grid horizontally */
+  }
+  
+  /* Style for the list of reps*/
+  .repGrid {
+    list-style: none;
+    padding: 0;
+    display: flex; /* Change to flex display */
+    flex-wrap: wrap; /* Allow items to wrap to the next line */
+    justify-content: center; /* Center items horizontally */
+    gap: 16px;
+  }
+  
+  /* Style for each rep entry */
+  .repGridItem {
+    background-image: radial-gradient(circle, #050000 0%, #777777 100%);
+    padding: 16px;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Style for the title of each item in the responsive grid */
+  .repGridTitle {
+    font-family: 'Arial', sans-serif; /* Change to your desired font family */
+    font-size: 24px;
+    margin-bottom: 16px;
+    text-align: center;
+    background-image: radial-gradient(circle, #050000 0%, #777777 100%);
+    padding: 8px;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  }
+  .margin{
+    margin: -8px;
+  }
+
+  .img {    
+    background: url('../[exercise_id]/fullRepsBackground.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+  }
+
+  
