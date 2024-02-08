@@ -7,6 +7,11 @@ export default function ResetPasswordForm() {
     const [newPassword, setNewPassword] = useState('');
     const supabase = createClientComponentClient();
 
+
+    async function redirect() {
+      window.location.href = '/account';
+    }
+
     const handleSubmit = async (e) => {
         e.preventDefault();
       
@@ -40,6 +45,7 @@ export default function ResetPasswordForm() {
                 />
                 <button type="submit">Update Password</button>
             </form>
+            <button type = "move-on" onClick={redirect}> Carry on to Account Without Changing Passwords</button>
         </div>
     );
 }

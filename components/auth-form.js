@@ -11,16 +11,6 @@ export default function AuthForm() {
 
   useEffect(() => {
     const { data: authListener } = supabase.auth.onAuthStateChange((event, session) => {
-      if (event === 'PASSWORD_RECOVERY') {
-        console.log('PASSWORD_RECOVERY', session);
-
-
-        // show screen to update user's password
-        // Might not be right
-        const redirectUrl = localStorage.getItem('/reset-password');
-        window.location.href = redirectUrl;
-        window.location.reload();
-      }
       
       if (event === 'SIGNED_IN' || event === 'SIGNED_OUT') {
         // Trigger a full page reload
