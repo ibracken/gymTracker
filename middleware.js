@@ -3,6 +3,13 @@ import { createMiddlewareClient } from "@supabase/auth-helpers-nextjs";
 
 export async function middleware(req) {
     const res = NextResponse.next();
+
+    const publicUrls = ['/reset-password']
+
+    if(publicUrls.includes(req.nextUrl.pathname)) {
+        return res;
+    }
+
     const supabase = createMiddlewareClient({req, res });
     const { 
         data: {user} 
@@ -14,6 +21,10 @@ export async function middleware(req) {
     }
 
     if(!user && req.nextUrl.pathname !== "/login") {
+        return NextResponse.redirect(new URL("/login", req.url));
+    }
+
+    if(req.nextUrl.pathname === "/") {
         return NextResponse.redirect(new URL("/login", req.url));
     }
 

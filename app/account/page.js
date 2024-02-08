@@ -8,6 +8,7 @@ import PostList from "@/components/post-list";
 import DeleteButton from "@/components/delete-button-exercises";
 import CreateRep from "@/components/create-rep";
 import styles from "./account.module.css";
+import LogoutButton from "@/components/logout-button";
 
 export default async function AccountPage() {
     const supabase = createServerComponentClient({cookies});
@@ -52,6 +53,7 @@ export default async function AccountPage() {
                 <DeleteButton exercises = {exercises}/>
                 <CreateRep exercises = {exercises}/>
                 <PostList/>
+                <LogoutButton />
             </div>
         </div>
     )
