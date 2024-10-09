@@ -1,3 +1,4 @@
+# The database has been corrupted and won't allow authentication to go through at the moment
 This app was built with Next.js and Supabase. It uses dynamic routing and foreign key relations to store and display user info relating to their workouts.
 
 ## Getting Started
